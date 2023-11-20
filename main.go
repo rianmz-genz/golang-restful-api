@@ -4,7 +4,9 @@ import (
 	"net/http"
 	"rianmz-genz/golang-restful-api/app"
 	"rianmz-genz/golang-restful-api/controller"
+	"rianmz-genz/golang-restful-api/exception"
 	"rianmz-genz/golang-restful-api/helper"
+	"rianmz-genz/golang-restful-api/middleware"
 	"rianmz-genz/golang-restful-api/repository"
 	"rianmz-genz/golang-restful-api/service"
 
@@ -29,9 +31,10 @@ func main() {
 	router.PUT("/api/categories/:categoryId", categoryController.Update)
 	router.DELETE("/api/categories/:categoryId", categoryController.Delete)
 	
+	router.PanicHandler = exception.ErrorHandler
 	server := http.Server{
 		Addr: "localhost:7611",
-		Handler: router,
+		Handler: middleware.NewAuthMiddleware(router),
 	}
 
 	err := server.ListenAndServe()

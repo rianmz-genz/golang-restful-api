@@ -5,18 +5,20 @@ POST http://localhost:7611/api/categories
 Content-Type: application/json
 
 {
-    "name": "ayaya"
+    "name": ""
 }
 
 ###
-GET http://localhost:7611/api/categories/2
+GET http://localhost:7611/api/categories/1
+X-API-KEY: RAHASIA
 
 ###
 PUT http://localhost:7611/api/categories/1
 Content-Type: application/json
+X-API-KEY: RAHASIA
 
 {
-    "name": "haiyuk"
+    "name": ""
 }
 
 ###
