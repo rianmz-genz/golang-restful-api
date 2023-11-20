@@ -1,0 +1,23 @@
+GET http://localhost:7611/api/categories
+
+###
+POST http://localhost:7611/api/categories
+Content-Type: application/json
+
+{
+    "name": "ayaya"
+}
+
+###
+GET http://localhost:7611/api/categories/2
+
+###
+PUT http://localhost:7611/api/categories/1
+Content-Type: application/json
+
+{
+    "name": "haiyuk"
+}
+
+###
+DELETE http://localhost:7611/api/categories/2
